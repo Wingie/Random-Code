@@ -30,7 +30,7 @@ def getmore(vid_id):
   entry = yt_service.GetYouTubeVideoEntry(video_id=vid_id)
   cat = [ x.text for x in entry.media.category]
   query = gdata.youtube.service.YouTubeVideoQuery()
-
+  query.orderby = 'viewCount'
   for search_term in cat:
     new_term = search_term.lower()
     query.categories.append('%s' % new_term)
